@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Anime Style</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-navbar">
+    <div class="nav-logo">
+      <img src="gambar/download.png" alt="Logo Vivy" />
+    </div>
+
+    <nav class="top-menu" id="topMenu">
+      <a href="#home" class="active">HOME</a>
+      <a href="#vivy-ost">Vivy OST</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+  </header>
+
+  <main class="main" id="mainContent">
+    <section class="hero section-animate show" id="home">
+      <div class="overlay"></div>
+
+      <div class="hero-content">
+        <h1>My mission is to make</h1>
+        <h2>everyone happy with my singing</h2>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+    <section class="pv-section section-animate" id="vivy-ost">
+      <div class="pv-overlay"></div>
+
+      <div class="pv-content">
+        <button class="pv-play-button" id="openVideoBtn" aria-label="Play video">
+          ▶
+        </button>
+
+        <div class="pv-thumbnails">
+          <button class="pv-thumb active" data-video="https://www.youtube.com/embed/2p8ig-TrYPY?autoplay=1&rel=0">
+            <img src="https://img.youtube.com/vi/2p8ig-TrYPY/maxresdefault.jpg" alt="Thumbnail 1" />
+          </button>
+
+          <button class="pv-thumb" data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0">
+            <img src="https://img.youtube.com/vi/FmzkbCo70B0/maxresdefault.jpg" alt="Thumbnail 2" />
+          </button>
+
+          <button class="pv-thumb" data-video="https://www.youtube.com/embed/d7IwP_xDObU?autoplay=1&rel=0">
+            <img src="https://img.youtube.com/vi/d7IwP_xDObU/maxresdefault.jpg" alt="Thumbnail 3" />
+          </button>
+
+          <button class="pv-thumb" data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0">
+            <img src="https://img.youtube.com/vi/FmzkbCo70B0/maxresdefault.jpg" alt="Thumbnail 4" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="video-modal" id="videoModal">
+    <div class="video-backdrop" id="closeVideoBackdrop"></div>
+
+    <div class="video-dialog">
+      <button class="video-close" id="closeVideoBtn" aria-label="Tutup video">&times;</button>
+
+      <div class="video-frame-wrap">
+        <iframe
+          id="youtubeFrame"
+          src=""
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="video-fallback">
+        <a
+          href="https://youtu.be/2p8ig-TrYPY?si=3jwnjoCmz6ulqGQ3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Buka video di YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
