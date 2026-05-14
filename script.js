@@ -1,7 +1,5 @@
-const menuToggle = document.getElementById("menuToggle");
-const topMenu = document.getElementById("topMenu");
 const navLinks = document.querySelectorAll(".top-menu a");
-const sections = document.querySelectorAll("#home, #vivy-ost");
+const sections = document.querySelectorAll("#home, #vivy-ost, #story");
 
 function setActiveLink(id) {
   navLinks.forEach((link) => {
@@ -23,27 +21,20 @@ function updateActiveMenuOnScroll() {
   });
 }
 
-if (menuToggle) {
-  menuToggle.addEventListener("click", () => {
-    topMenu.classList.toggle("show");
-  });
-}
-
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     const href = link.getAttribute("href");
     const target = document.querySelector(href);
-
     if (!target) return;
 
     e.preventDefault();
 
-    const extraOffset = href === "#home" ? 88 : 20;
-    const topPosition = target.offsetTop - extraOffset;
+    const navbarHeight = document.querySelector(".top-navbar").offsetHeight;
+    const targetPosition = target.offsetTop - navbarHeight;
 
     window.scrollTo({
-      top: topPosition,
-      behavior: "smooth"
+      top: targetPosition,
+      behavior: "smooth",
     });
 
     setActiveLink(href.replace("#", ""));
