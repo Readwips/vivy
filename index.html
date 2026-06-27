@@ -3,83 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Anime Style</title>
+  <title>Vivy - Fluorite Eye's Song</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="top-navbar">
-    <div class="nav-logo">
+    <a class="nav-logo" href="#home" aria-label="Kembali ke halaman utama">
       <img src="gambar/download.png" alt="Logo Vivy" />
-    </div>
+      <span>Vivy</span>
+    </a>
 
-    <nav class="top-menu" id="topMenu">
-      <a href="#home" class="active">HOME</a>
+    <nav class="top-menu" id="topMenu" aria-label="Navigasi utama">
+      <a href="#home" class="active">Home</a>
       <a href="#vivy-ost">Vivy OST</a>
-      <a href="#story">STORY</a>
+      <a href="#story">Story</a>
     </nav>
   </header>
 
   <main class="main" id="mainContent">
     <section class="hero section-animate show" id="home">
-      <div class="overlay"></div>
+      <div class="section-overlay hero-overlay"></div>
 
       <div class="hero-content">
-        <h1>My mission is to make</h1>
-        <h2>everyone happy with my singing</h2>
+        <p class="eyebrow">Fluorite Eye's Song</p>
+        <h1>My mission is to make everyone happy with my singing.</h1>
       </div>
 
-      <div class="scroll-indicator">
+      <div class="scroll-indicator" aria-hidden="true">
         <div class="mouse"></div>
-        <span>SCROLL</span>
+        <span>Scroll</span>
       </div>
     </section>
 
     <section class="pv-section section-animate" id="vivy-ost">
-      <div class="pv-overlay"></div>
+      <div class="section-overlay pv-overlay"></div>
 
       <div class="pv-content">
-        <button class="pv-play-button" id="openVideoBtn" aria-label="Play video">
-          ▶
+        <div class="pv-copy">
+          <p class="eyebrow">Original Soundtrack</p>
+          <h2>Vivy OST Collection</h2>
+          <p>
+            Pilih video favoritmu, lalu putar langsung dalam tampilan pop-up
+            yang lebih bersih.
+          </p>
+        </div>
+
+        <button class="pv-play-button" id="openVideoBtn" type="button" aria-label="Putar video pilihan">
+          <span aria-hidden="true"></span>
         </button>
 
-        <div class="pv-thumbnails">
-          <button class="pv-thumb active" data-video="https://www.youtube.com/embed/2p8ig-TrYPY?autoplay=1&rel=0">
-            <img src="https://img.youtube.com/vi/2p8ig-TrYPY/maxresdefault.jpg" alt="Thumbnail 1" />
+        <div class="pv-thumbnails" aria-label="Daftar video OST">
+          <button
+            class="pv-thumb active"
+            type="button"
+            data-video="https://www.youtube.com/embed/2p8ig-TrYPY?autoplay=1&rel=0"
+          >
+            <img src="https://img.youtube.com/vi/2p8ig-TrYPY/maxresdefault.jpg" alt="Thumbnail OST Sing My Pleasure" />
+            <span>Sing My Pleasure</span>
           </button>
 
-          <button class="pv-thumb" data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0">
-            <img src="https://img.youtube.com/vi/FmzkbCo70B0/maxresdefault.jpg" alt="Thumbnail 2" />
+          <button
+            class="pv-thumb"
+            type="button"
+            data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0"
+          >
+            <img src="https://img.youtube.com/vi/FmzkbCo70B0/maxresdefault.jpg" alt="Thumbnail OST Ensemble for Polaris" />
+            <span>Ensemble for Polaris</span>
           </button>
 
-          <button class="pv-thumb" data-video="https://www.youtube.com/embed/d7IwP_xDObU?autoplay=1&rel=0">
-            <img src="https://img.youtube.com/vi/d7IwP_xDObU/maxresdefault.jpg" alt="Thumbnail 3" />
+          <button
+            class="pv-thumb"
+            type="button"
+            data-video="https://www.youtube.com/embed/d7IwP_xDObU?autoplay=1&rel=0"
+          >
+            <img src="https://img.youtube.com/vi/d7IwP_xDObU/maxresdefault.jpg" alt="Thumbnail OST Fluorite Eye's Song" />
+            <span>Fluorite Eye's Song</span>
           </button>
 
-          <button class="pv-thumb" data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0">
-            <img src="https://img.youtube.com/vi/FmzkbCo70B0/maxresdefault.jpg" alt="Thumbnail 4" />
+          <button
+            class="pv-thumb"
+            type="button"
+            data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0"
+          >
+            <img src="gambar/Episode_2_Thumbnail.webp" alt="Thumbnail episode Vivy" />
+            <span>Episode Highlight</span>
           </button>
         </div>
       </div>
     </section>
 
-    <section class="next-section section-animate" id="story">
-      <div class="next-overlay"></div>
+    <section class="story-section section-animate" id="story">
+      <div class="section-overlay story-overlay"></div>
 
-      <div class="next-content">
+      <div class="story-content">
+        <p class="eyebrow">Story</p>
         <h2>Vivy's Story</h2>
         <p>
-          Continue the journey beyond the OST section and explore a new page
-          with more visuals, story details, and character content.
+          Sebuah perjalanan AI penyanyi yang berusaha menjalankan misi,
+          memahami manusia, dan menemukan arti kebahagiaan lewat musik.
         </p>
       </div>
     </section>
   </main>
 
-  <div class="video-modal" id="videoModal">
+  <div class="video-modal" id="videoModal" aria-hidden="true">
     <div class="video-backdrop" id="closeVideoBackdrop"></div>
 
-    <div class="video-dialog">
-      <button class="video-close" id="closeVideoBtn" aria-label="Tutup video">&times;</button>
+    <div class="video-dialog" role="dialog" aria-modal="true" aria-label="Pemutar video OST">
+      <button class="video-close" id="closeVideoBtn" type="button" aria-label="Tutup video">&times;</button>
 
       <div class="video-frame-wrap">
         <iframe
@@ -92,15 +129,15 @@
         </iframe>
       </div>
 
-      <div class="video-fallback">
-        <a
-          href="https://youtu.be/2p8ig-TrYPY?si=3jwnjoCmz6ulqGQ3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Buka video di YouTube
-        </a>
-      </div>
+      <a
+        class="video-fallback"
+        id="youtubeLink"
+        href="https://youtu.be/2p8ig-TrYPY"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Buka di YouTube
+      </a>
     </div>
   </div>
 
