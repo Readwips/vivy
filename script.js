@@ -105,6 +105,14 @@ function youtubeEmbedToWatchUrl(embedUrl) {
   return videoId ? `https://youtu.be/${videoId}` : "https://www.youtube.com";
 }
 
+function selectVideo(thumb) {
+  selectedVideoUrl = thumb.dataset.video || defaultYoutubeEmbedUrl;
+  youtubeLink.href = youtubeEmbedToWatchUrl(selectedVideoUrl);
+
+  pvThumbs.forEach((item) => item.classList.remove("active"));
+  thumb.classList.add("active");
+}
+
 function openVideo(videoUrl = selectedVideoUrl) {
   selectedVideoUrl = videoUrl;
   videoModal.classList.add("show");
@@ -201,11 +209,7 @@ closeVideoBackdrop?.addEventListener("click", closeVideo);
 
 pvThumbs.forEach((thumb) => {
   thumb.addEventListener("click", () => {
-    selectedVideoUrl = thumb.dataset.video || defaultYoutubeEmbedUrl;
-
-    pvThumbs.forEach((item) => item.classList.remove("active"));
-    thumb.classList.add("active");
-    openVideo(selectedVideoUrl);
+    selectVideo(thumb);
   });
 });
 
