@@ -1,6 +1,7 @@
 const navLinks = document.querySelectorAll(".top-menu a");
 const sections = document.querySelectorAll("#home, #vivy-ost, #story");
 const navbar = document.querySelector(".top-navbar");
+const pvSection = document.getElementById("vivy-ost");
 const videoModal = document.getElementById("videoModal");
 const openVideoBtn = document.getElementById("openVideoBtn");
 const closeVideoBtn = document.getElementById("closeVideoBtn");
@@ -106,11 +107,18 @@ function youtubeEmbedToWatchUrl(embedUrl) {
 }
 
 function selectVideo(thumb) {
+  const thumbnailImage = thumb.querySelector("img");
+  const backgroundImage = thumbnailImage?.currentSrc || thumbnailImage?.src;
+
   selectedVideoUrl = thumb.dataset.video || defaultYoutubeEmbedUrl;
   youtubeLink.href = youtubeEmbedToWatchUrl(selectedVideoUrl);
 
   pvThumbs.forEach((item) => item.classList.remove("active"));
   thumb.classList.add("active");
+
+  if (backgroundImage && pvSection) {
+    pvSection.style.backgroundImage = `url("${backgroundImage}")`;
+  }
 }
 
 function openVideo(videoUrl = selectedVideoUrl) {
