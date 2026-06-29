@@ -548,32 +548,53 @@ img {
   }
 }
 
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .hero,
+  .pv-section,
+  .story-section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  .pv-section,
+  .story-section {
+    overflow: visible;
+  }
+}
+
 @media (max-width: 560px) {
   :root {
-    --nav-height: 68px;
+    --nav-height: 76px;
   }
 
   .top-navbar {
-    gap: 8px;
-    padding-inline: 10px;
+    gap: 10px;
+    padding-inline: 12px;
   }
 
   .nav-logo img {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
 
   .top-menu {
     flex: 1;
-    justify-content: flex-end;
-    gap: 2px;
-    padding: 4px;
+    justify-content: space-between;
+    min-width: 0;
+    gap: 3px;
+    padding: 5px;
   }
 
   .top-menu a {
+    flex: 1 1 0;
     min-width: 0;
-    padding: 8px 8px;
+    padding: 10px 6px;
     font-size: 10px;
+    line-height: 1;
   }
 
   .hero,
@@ -583,7 +604,7 @@ img {
   }
 
   .hero {
-    padding: calc(var(--nav-height) + 42px) 18px 72px;
+    padding: calc(var(--nav-height) + 36px) 18px 72px;
     background-position: 62% center;
   }
 
@@ -596,7 +617,7 @@ img {
   }
 
   .pv-section {
-    padding: calc(var(--nav-height) + 26px) 16px 22px;
+    padding: calc(var(--nav-height) + 30px) 16px 24px;
   }
 
   .pv-copy h2 {
@@ -624,5 +645,35 @@ img {
 
   .story-content {
     padding: 24px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --nav-height: 74px;
+  }
+
+  .top-navbar {
+    gap: 7px;
+    padding-inline: 8px;
+  }
+
+  .nav-logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .top-menu {
+    gap: 2px;
+    padding: 4px;
+  }
+
+  .top-menu a {
+    padding: 9px 4px;
+    font-size: 9px;
+  }
+
+  .pv-copy h2 {
+    font-size: 31px;
   }
 }

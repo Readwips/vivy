@@ -14,10 +14,19 @@ const defaultYoutubeEmbedUrl = "https://www.youtube.com/embed/2p8ig-TrYPY?autopl
 const scrollLockDuration = 850;
 const wheelThreshold = 10;
 const touchThreshold = 42;
+const sectionScrollBreakpoint = 768;
 let selectedVideoUrl = defaultYoutubeEmbedUrl;
 let currentSectionIndex = 0;
 let isSectionScrolling = false;
 let touchStartY = 0;
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+if (!window.location.hash) {
+  window.scrollTo(0, 0);
+}
 
 function getNavbarHeight() {
   return navbar ? navbar.offsetHeight : 0;
@@ -78,6 +87,7 @@ function getClosestSectionIndex() {
 
 function moveSection(direction) {
   if (videoModal.classList.contains("show") || isSectionScrolling) return;
+  if (window.innerWidth <= sectionScrollBreakpoint) return;
 
   const activeIndex = getClosestSectionIndex();
   const nextIndex = Math.min(
