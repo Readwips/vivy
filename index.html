@@ -1,146 +1,372 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vivy - Fluorite Eye's Song</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="top-navbar">
-    <a class="nav-logo" href="#home" aria-label="Kembali ke halaman utama">
-      <img src="gambar/download.png" alt="Logo Vivy" />
-      <span>Vivy</span>
-    </a>
-
-    <nav class="top-menu" id="topMenu" aria-label="Navigasi utama">
-      <a href="#home" class="active">Home</a>
-      <a href="#vivy-ost">Vivy OST</a>
-      <a href="#story">Story</a>
-    </nav>
-  </header>
-
-  <main class="main" id="mainContent">
-    <section class="hero section-animate show" id="home">
-      <div class="section-overlay hero-overlay"></div>
-
-      <div class="hero-content">
-        <p class="eyebrow">Fluorite Eye's Song</p>
-        <h1>My mission is to make everyone happy with my singing.</h1>
-      </div>
-
-      <div class="scroll-indicator" aria-hidden="true">
-        <div class="mouse"></div>
-        <span>Scroll</span>
-      </div>
-    </section>
-
-    <section class="pv-section section-animate" id="vivy-ost">
-      <div class="section-overlay pv-overlay"></div>
-
-      <div class="pv-content">
-        <div class="pv-copy">
-          <p class="eyebrow">Original Soundtrack</p>
-          <h2>Vivy OST Collection</h2>
-          <p>
-            Pilih video MYISTRI yang kamu suka, lalu tekan tombol play untuk
-            menampilkan videonya.
-          </p>
-        </div>
-
-        <button class="pv-play-button" id="openVideoBtn" type="button" aria-label="Putar video pilihan">
-          <span aria-hidden="true"></span>
-        </button>
-
-        <div class="pv-thumbnails" aria-label="Daftar video OST">
-          <button
-            class="pv-thumb active"
-            type="button"
-            data-video="https://www.youtube.com/embed/2p8ig-TrYPY?autoplay=1&rel=0"
-          >
-            <img src="https://img.youtube.com/vi/2p8ig-TrYPY/maxresdefault.jpg" alt="Thumbnail OST Sing My Pleasure" />
-            <span>Sing My Pleasure</span>
-          </button>
-
-          <button
-            class="pv-thumb"
-            type="button"
-            data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0"
-          >
-            <img src="https://img.youtube.com/vi/FmzkbCo70B0/maxresdefault.jpg" alt="Thumbnail OST Fluorite Eye's Song" />
-            <span>Fluorite Eye's Song</span>
-          </button>
-
-          <button
-            class="pv-thumb"
-            type="button"
-            data-video="https://www.youtube.com/embed/d7IwP_xDObU?autoplay=1&rel=0"
-          >
-            <img src="https://img.youtube.com/vi/d7IwP_xDObU/maxresdefault.jpg" alt="Thumbnail OST Ensemble for Polaris" />
-            <span>Ensemble for Polaris</span>
-          </button>
-
-          <button
-            class="pv-thumb"
-            type="button"
-            data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0"
-          >
-            <img src="gambar/Episode_2_Thumbnail.webp" alt="Thumbnail episode Vivy" />
-            <span>Episode Highlight</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="story-section section-animate" id="story">
-      <div class="section-overlay story-overlay"></div>
-
-      <div class="story-content">
-        <p class="eyebrow">Story</p>
-        <h2>Vivy's Story</h2>
-        <p>
-          Sebuah perjalanan AI penyanyi yang berusaha menjalankan misi,
-          memahami manusia, dan menemukan arti kebahagiaan lewat musik.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <div class="video-modal" id="videoModal" aria-hidden="true">
-    <div class="video-backdrop" id="closeVideoBackdrop"></div>
-
-    <div class="video-dialog" role="dialog" aria-modal="true" aria-label="Pemutar video OST">
-      <button class="video-close" id="closeVideoBtn" type="button" aria-label="Tutup video">&times;</button>
-
-      <div class="video-frame-wrap">
-        <iframe
-          id="youtubeFrame"
-          src=""
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <a
-        class="video-fallback"
-        id="youtubeLink"
-        href="https://youtu.be/2p8ig-TrYPY"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Buka di YouTube
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vivy - Fluorite Eye's Song</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top-navbar">
+      <a class="nav-logo" href="#home" aria-label="Kembali ke halaman utama">
+        <img src="gambar/download.png" alt="Logo Vivy" />
+        <span>Vivy</span>
       </a>
-    </div>
-  </div>
 
-  <script src="script.js?v=8"></script>
-</body>
+      <nav class="top-menu" id="topMenu" aria-label="Navigasi utama">
+        <a href="#home" class="active">Home</a>
+        <a href="#vivy-ost">Vivy OST</a>
+        <a href="#story">Summary</a>
+        <button
+          class="music-toggle"
+          id="musicToggle"
+          type="button"
+          aria-label="Matikan musik"
+          aria-pressed="true"
+        >
+          <img
+            class="music-toggle-icon"
+            src="gambar/vivy-symbol-black.jpg"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+      </nav>
+    </header>
+
+    <audio
+      class="bg-music-player"
+      id="bgMusic"
+      src="gambar/fluorite-eye-song-piano-version.mp3"
+      autoplay
+      loop
+      preload="auto"
+      aria-hidden="true"
+    ></audio>
+
+    <main class="main" id="mainContent">
+      <section class="hero section-animate show" id="home">
+        <div class="section-overlay hero-overlay"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">Fluorite Eye's Song</p>
+          <h1>My mission is to make everyone happy with my singing.</h1>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <div class="mouse"></div>
+          <span>Scroll</span>
+        </div>
+      </section>
+
+      <section class="pv-section section-animate" id="vivy-ost">
+        <video
+          class="pv-bg-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="gambar/vivy-ost-background.mp4" type="video/mp4" />
+        </video>
+        <div class="section-overlay pv-overlay"></div>
+
+        <div class="pv-content">
+          <div class="pv-copy">
+            <p class="eyebrow">Soundtrack</p>
+            <h2>Vivy OST Collection</h2>
+            <p>video MYISTRI yang kamu suka, nanti videonya akan ke play kok</p>
+          </div>
+
+          <div class="pv-carousel" aria-label="Navigasi daftar video OST">
+            <button
+              class="pv-carousel-nav pv-carousel-prev"
+              id="prevOstBtn"
+              type="button"
+              aria-label="Lagu sebelumnya"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+
+            <div
+              class="pv-thumbnails"
+              id="ostCarousel"
+              aria-label="Daftar video OST"
+            >
+              <button
+                class="pv-thumb active"
+                type="button"
+                data-title="Sing My Pleasure"
+                data-label="OST 01"
+                data-video="https://www.youtube.com/embed/2p8ig-TrYPY?autoplay=1&rel=0"
+              >
+                <img
+                  src="https://img.youtube.com/vi/2p8ig-TrYPY/maxresdefault.jpg"
+                  alt="Thumbnail OST Sing My Pleasure"
+                />
+                <span class="pv-thumb-status">Now Playing</span>
+                <span class="pv-card-play" aria-hidden="true"></span>
+                <span class="pv-thumb-meta">OST 01</span>
+                <span class="pv-thumb-title">Sing My Pleasure</span>
+              </button>
+
+              <button
+                class="pv-thumb"
+                type="button"
+                data-title="Fluorite Eye's Song"
+                data-label="OST 02"
+                data-video="https://www.youtube.com/embed/FmzkbCo70B0?autoplay=1&rel=0"
+              >
+                <img
+                  src="https://img.youtube.com/vi/FmzkbCo70B0/maxresdefault.jpg"
+                  alt="Thumbnail OST Fluorite Eye's Song"
+                />
+                <span class="pv-thumb-status">Now Playing</span>
+                <span class="pv-card-play" aria-hidden="true"></span>
+                <span class="pv-thumb-meta">OST 02</span>
+                <span class="pv-thumb-title">Fluorite Eye's Song</span>
+              </button>
+
+              <button
+                class="pv-thumb"
+                type="button"
+                data-title="Ensemble for Polaris"
+                data-label="OST 03"
+                data-video="https://www.youtube.com/embed/d7IwP_xDObU?autoplay=1&rel=0"
+              >
+                <img
+                  src="https://img.youtube.com/vi/d7IwP_xDObU/maxresdefault.jpg"
+                  alt="Thumbnail OST Ensemble for Polaris"
+                />
+                <span class="pv-thumb-status">Now Playing</span>
+                <span class="pv-card-play" aria-hidden="true"></span>
+                <span class="pv-thumb-meta">OST 03</span>
+                <span class="pv-thumb-title">Ensemble for Polaris</span>
+              </button>
+
+              <button
+                class="pv-thumb"
+                type="button"
+                data-title="Elegy Dedicated With Love"
+                data-label="OST 04"
+                data-video="https://www.youtube.com/embed/pdxo0p_adSM?autoplay=1&rel=0"
+              >
+                <img
+                  src="https://img.youtube.com/vi/pdxo0p_adSM/maxresdefault.jpg"
+                  alt="Thumbnail OST Elegy Dedicated With Love"
+                />
+                <span class="pv-thumb-status">Now Playing</span>
+                <span class="pv-card-play" aria-hidden="true"></span>
+                <span class="pv-thumb-meta">OST 04</span>
+                <span class="pv-thumb-title">Elegy Dedicated With Love</span>
+              </button>
+
+              <button
+                class="pv-thumb"
+                type="button"
+                data-title="Harmony of One's Heart"
+                data-label="OST 05"
+                data-video="https://www.youtube.com/embed/DKM5NkmC8KQ?autoplay=1&rel=0"
+              >
+                <img
+                  src="https://img.youtube.com/vi/DKM5NkmC8KQ/maxresdefault.jpg"
+                  alt="Thumbnail OST Harmony of One's Heart"
+                />
+                <span class="pv-thumb-status">Now Playing</span>
+                <span class="pv-card-play" aria-hidden="true"></span>
+                <span class="pv-thumb-meta">OST 05</span>
+                <span class="pv-thumb-title">Harmony of One's Heart</span>
+              </button>
+
+              <button
+                class="pv-thumb"
+                type="button"
+                data-title="Galaxy Anthem"
+                data-label="OST 06"
+                data-video="https://www.youtube.com/embed/bySay9gB7sQ?autoplay=1&rel=0"
+              >
+                <img
+                  src="https://img.youtube.com/vi/bySay9gB7sQ/maxresdefault.jpg"
+                  alt="Thumbnail OST Galaxy Anthem"
+                />
+                <span class="pv-thumb-status">Now Playing</span>
+                <span class="pv-card-play" aria-hidden="true"></span>
+                <span class="pv-thumb-meta">OST 06</span>
+                <span class="pv-thumb-title">Galaxy Anthem</span>
+              </button>
+
+              <button
+                class="pv-thumb"
+                type="button"
+                data-title="Fluorite Eye's Song"
+                data-label="OST 07"
+                data-video="https://www.youtube.com/embed/yGC6XIeW9l4?autoplay=1&rel=0"
+              >
+                <img
+                  src="https://img.youtube.com/vi/yGC6XIeW9l4/maxresdefault.jpg"
+                  alt="Thumbnail OST Fluorite Eye's Song"
+                />
+                <span class="pv-thumb-status">Now Playing</span>
+                <span class="pv-card-play" aria-hidden="true"></span>
+                <span class="pv-thumb-meta">OST 07</span>
+                <span class="pv-thumb-title">Fluorite Eye's Song</span>
+              </button>
+            </div>
+
+            <button
+              class="pv-carousel-nav pv-carousel-next"
+              id="nextOstBtn"
+              type="button"
+              aria-label="Lagu berikutnya"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section section-animate" id="story">
+        <div class="section-overlay story-overlay"></div>
+
+        <div class="story-content">
+          <div class="story-copy">
+            <p class="eyebrow">Summary</p>
+            <h2>Vivy's Summary</h2>
+            <p>
+              Sebuah perjalanan AI penyanyi yang berusaha menjalankan misi,
+              memahami manusia, dan menemukan arti kebahagiaan lewat musik.
+            </p>
+
+            <div class="story-stats" aria-label="Detail summary Vivy">
+              <div>
+                <span>Studios</span>
+                <strong>Wit Studio</strong>
+              </div>
+              <div>
+                <span>Genres</span>
+                <strong>Action, Sci-Fi, Suspense</strong>
+              </div>
+              <div>
+                <span>Themes</span>
+                <strong>Music, Time Travel</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-character">
+            <div class="story-name-bg">VIVY</div>
+            <div class="story-frame">
+              <img src="gambar/vivy-character.jpg" alt="" />
+            </div>
+
+            <div class="story-profile-card" aria-live="polite">
+              <strong id="storyCharacterName">Vivy / Diva</strong>
+              <small id="storyCharacterDesc"
+                >AI singer with one mission: make people happy through
+                song.</small
+              >
+            </div>
+          </div>
+
+          <div class="story-slider-ui" aria-label="Pilih karakter Vivy Summary">
+            <button
+              type="button"
+              class="active"
+              data-story-index="0"
+              aria-label="Vivy / Diva"
+            >
+              <img src="gambar/vivy-symbol.png" alt="" />
+            </button>
+            <button type="button" data-story-index="1" aria-label="Grace">
+              <img src="gambar/vivy-symbol.png" alt="" />
+            </button>
+            <button type="button" data-story-index="2" aria-label="Estella">
+              <img src="gambar/vivy-symbol.png" alt="" />
+            </button>
+            <button type="button" data-story-index="3" aria-label="Ophelia">
+              <img src="gambar/vivy-symbol.png" alt="" />
+            </button>
+            <button type="button" data-story-index="4" aria-label="Elizabeth">
+              <img src="gambar/vivy-symbol.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+      <div class="video-backdrop" id="closeVideoBackdrop"></div>
+
+      <div
+        class="video-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Pemutar video OST"
+      >
+        <div class="video-sheet-header">
+          <div>
+            <p class="video-kicker" id="videoLabel">OST 01</p>
+            <h3 id="videoTitle">Sing My Pleasure</h3>
+          </div>
+          <button
+            class="video-close"
+            id="closeVideoBtn"
+            type="button"
+            aria-label="Tutup video"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div class="video-frame-wrap">
+          <iframe
+            id="youtubeFrame"
+            src=""
+            title="YouTube video player"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-controls" aria-label="Kontrol video">
+          <button class="video-nav" id="prevVideoBtn" type="button">
+            Previous
+          </button>
+          <button class="video-nav" id="nextVideoBtn" type="button">
+            Next
+          </button>
+        </div>
+
+        <a
+          class="video-fallback"
+          id="youtubeLink"
+          href="https://youtu.be/2p8ig-TrYPY"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Buka di YouTube
+        </a>
+      </div>
+    </div>
+
+    <script src="script.js?v=23"></script>
+  </body>
 </html>
