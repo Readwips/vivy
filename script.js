@@ -88,9 +88,8 @@ const storyCharacters = [
   {
     name: "Elizabeth",
     shortName: "ELIZABETH",
-    image: "gambar/elizabeth-character.jpg",
+    image: "gambar/elizabeth-character.png",
     desc: "A combat-model AI with a sharp presence inside the future's conflict.",
-    layout: "wide",
   },
 ];
 
