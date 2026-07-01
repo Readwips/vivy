@@ -231,7 +231,11 @@ function scrollToSection(target, index = sectionList.indexOf(target)) {
     currentSectionIndex = index;
   }
 
-  const targetPosition = target.offsetTop - getNavbarHeight();
+  const sectionHasNavSafePadding =
+    target.id === "home" || target.id === "vivy-ost";
+  const targetPosition = sectionHasNavSafePadding
+    ? target.offsetTop
+    : target.offsetTop - getNavbarHeight();
 
   isSectionScrolling = true;
   setActiveLink(target.id);

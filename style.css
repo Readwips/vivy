@@ -45,10 +45,13 @@ img {
   max-width: 100%;
 }
 
-#home,
-#vivy-ost,
 #story {
   scroll-margin-top: var(--nav-height);
+}
+
+#home,
+#vivy-ost {
+  scroll-margin-top: 0;
 }
 
 .top-navbar {
@@ -355,7 +358,7 @@ img {
 .pv-section {
   display: flex;
   align-items: flex-start;
-  padding: calc(var(--nav-height) + 46px) clamp(20px, 6vw, 86px) 42px;
+  padding: calc(var(--nav-height) + 30px) clamp(20px, 6vw, 86px) 42px;
   background: url("https://img.youtube.com/vi/2p8ig-TrYPY/maxresdefault.jpg")
     center / cover no-repeat;
 }
@@ -405,6 +408,7 @@ img {
 
 .pv-carousel {
   grid-column: 1 / -1;
+  position: relative;
   min-width: 0;
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr) 44px;
@@ -1286,13 +1290,13 @@ img {
 
 @media (max-width: 768px) {
   html {
-    scroll-snap-type: none;
+    scroll-snap-type: y proximity;
   }
 
   .hero,
   .pv-section,
   .story-section {
-    scroll-snap-align: none;
+    scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
 
@@ -1302,7 +1306,7 @@ img {
   }
 
   .story-section {
-    padding: 24px 16px 42px;
+    padding: 18px 16px 36px;
   }
 
   .pv-thumb {
@@ -1311,6 +1315,7 @@ img {
 
   .story-content {
     min-height: auto;
+    gap: 20px;
   }
 
   .story-copy > p:last-of-type {
@@ -1320,11 +1325,13 @@ img {
 
   .story-stats {
     grid-template-columns: 1fr;
-    margin-top: 22px;
+    gap: 10px;
+    margin-top: 18px;
   }
 
   .story-stats div {
-    min-height: 70px;
+    min-height: 64px;
+    padding: 13px 14px;
   }
 
   .story-character {
@@ -1347,9 +1354,9 @@ img {
     right: auto;
     top: auto;
     grid-template-columns: repeat(5, 38px);
-    justify-content: end;
+    justify-content: center;
     order: -1;
-    margin-bottom: -10px;
+    margin-bottom: 2px;
     transform: none;
   }
 
@@ -1392,38 +1399,38 @@ img {
 
 @media (max-width: 560px) {
   :root {
-    --nav-height: 76px;
+    --nav-height: 68px;
   }
 
   .top-navbar {
-    gap: 10px;
-    padding-inline: 12px;
+    gap: 8px;
+    padding-inline: 10px;
   }
 
   .nav-logo img {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
   }
 
   .top-menu {
     flex: 1;
     justify-content: space-between;
     min-width: 0;
-    gap: 3px;
-    padding: 5px;
+    gap: 2px;
+    padding: 4px;
   }
 
   .top-menu a {
     flex: 1 1 0;
     min-width: 0;
-    padding: 10px 6px;
+    padding: 9px 5px;
     font-size: 10px;
     line-height: 1;
   }
 
   .music-toggle {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .hero {
@@ -1441,12 +1448,12 @@ img {
   }
 
   .pv-section {
-    min-height: 100svh;
-    padding: calc(var(--nav-height) + 30px) 16px 24px;
+    min-height: 86svh;
+    padding: calc(var(--nav-height) + 18px) 16px 30px;
   }
 
   .pv-copy h2 {
-    font-size: 34px;
+    font-size: 32px;
   }
 
   .pv-copy p:last-child,
@@ -1456,13 +1463,15 @@ img {
   }
 
   .pv-thumbnails {
-    gap: 12px;
+    gap: 14px;
+    padding: 6px 0 14px;
+    mask-image: none;
   }
 
   .pv-thumb {
     width: 100%;
     flex-basis: 100%;
-    height: 132px;
+    height: clamp(164px, 43vw, 196px);
     border-radius: 12px;
   }
 
@@ -1480,16 +1489,46 @@ img {
     transform: none;
   }
 
+  .pv-carousel {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .pv-carousel-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    background: rgba(5, 10, 18, 0.72);
+    transform: translateY(-50%);
+  }
+
+  .pv-carousel-prev {
+    left: -6px;
+  }
+
+  .pv-carousel-next {
+    right: -6px;
+  }
+
+  .pv-carousel-nav:hover,
+  .pv-carousel-nav:focus-visible {
+    transform: translateY(-50%) scale(1.04);
+  }
+
   .story-section {
     min-height: 100svh;
+    padding-top: 14px;
   }
 
   .story-content h2 {
-    font-size: 42px;
+    font-size: 38px;
+    line-height: 1;
   }
 
   .story-character {
-    min-height: 360px;
+    min-height: 380px;
   }
 
   .story-name-bg {
@@ -1506,23 +1545,23 @@ img {
   }
 
   .story-content {
-    padding: 24px 18px;
+    padding: 8px 0 0;
   }
 }
 
 @media (max-width: 380px) {
   :root {
-    --nav-height: 74px;
+    --nav-height: 66px;
   }
 
   .top-navbar {
-    gap: 7px;
-    padding-inline: 8px;
+    gap: 6px;
+    padding-inline: 7px;
   }
 
   .nav-logo img {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
   }
 
   .top-menu {
@@ -1531,11 +1570,20 @@ img {
   }
 
   .top-menu a {
-    padding: 9px 4px;
+    padding: 8px 3px;
     font-size: 9px;
+  }
+
+  .music-toggle {
+    width: 30px;
+    height: 30px;
   }
 
   .pv-copy h2 {
     font-size: 31px;
+  }
+
+  .pv-thumb {
+    height: 156px;
   }
 }
