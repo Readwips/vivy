@@ -51,9 +51,13 @@ let touchStartY = 0;
 
 const backgroundMusicUnlockEvents = [
   "pointerdown",
+  "pointerup",
   "touchstart",
+  "touchmove",
+  "touchend",
   "keydown",
   "wheel",
+  "scroll",
 ];
 
 const storyCharacters = [
@@ -120,6 +124,10 @@ function playBackgroundMusic() {
 
   backgroundMusic.volume = backgroundMusicVolume;
   backgroundMusic.muted = false;
+
+  if (backgroundMusic.readyState === 0) {
+    backgroundMusic.load();
+  }
 
   const playRequest = backgroundMusic.play();
 
@@ -532,6 +540,7 @@ window.addEventListener(
   "wheel",
   (event) => {
     if (Math.abs(event.deltaY) < wheelThreshold) return;
+    if (window.innerWidth <= sectionScrollBreakpoint) return;
 
     event.preventDefault();
     moveSection(event.deltaY > 0 ? 1 : -1);
@@ -554,6 +563,13 @@ window.addEventListener(
     const touchDelta = touchStartY - touchCurrentY;
 
     if (Math.abs(touchDelta) < touchThreshold) return;
+
+    unlockBackgroundMusicFromGesture(event);
+
+    if (window.innerWidth <= sectionScrollBreakpoint) {
+      touchStartY = touchCurrentY;
+      return;
+    }
 
     event.preventDefault();
     moveSection(touchDelta > 0 ? 1 : -1);
