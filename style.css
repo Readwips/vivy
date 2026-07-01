@@ -1241,9 +1241,9 @@ img {
   }
 
   .hero {
-    align-items: flex-start;
-    padding-top: calc(var(--nav-height) + 66px);
-    background-position: 60% center;
+    align-items: center;
+    padding: var(--nav-height) clamp(18px, 6vw, 56px) 70px;
+    background-position: 56% center;
   }
 
   .hero-overlay {
@@ -1253,17 +1253,18 @@ img {
   }
 
   .hero-content {
-    width: min(560px, 100%);
+    width: min(610px, 100%);
   }
 
   .pv-content {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: minmax(220px, 430px) minmax(120px, 1fr);
+    grid-template-rows: minmax(0, auto) auto;
     align-items: center;
+    column-gap: 18px;
   }
 
   .pv-section {
-    overflow: visible;
+    overflow: hidden;
   }
 
   .pv-copy {
@@ -1271,12 +1272,12 @@ img {
   }
 
   .pv-thumb {
-    flex-basis: min(44vw, 310px);
+    flex-basis: min(34vw, 278px);
   }
 
   .story-content {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    grid-template-columns: minmax(260px, 0.86fr) minmax(300px, 1.14fr);
+    gap: 24px;
   }
 
   .story-character {
@@ -1290,7 +1291,7 @@ img {
 
 @media (max-width: 768px) {
   html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
 
   .hero,
@@ -1302,62 +1303,64 @@ img {
 
   .pv-section,
   .story-section {
-    overflow: visible;
+    overflow: hidden;
   }
 
   .story-section {
-    padding: 18px 16px 36px;
+    padding: 26px 14px 22px;
   }
 
   .pv-thumb {
-    flex-basis: min(58vw, 320px);
+    flex-basis: min(38vw, 230px);
   }
 
   .story-content {
-    min-height: auto;
-    gap: 20px;
+    min-height: calc(100svh - var(--nav-height) - 48px);
+    grid-template-columns: minmax(0, 0.54fr) minmax(0, 0.46fr);
+    gap: 12px;
+    align-items: start;
   }
 
   .story-copy > p:last-of-type {
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 13px;
+    line-height: 1.55;
   }
 
   .story-stats {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 18px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 14px;
   }
 
   .story-stats div {
-    min-height: 64px;
-    padding: 13px 14px;
+    min-height: 58px;
+    padding: 10px 8px;
   }
 
   .story-character {
-    min-height: 420px;
+    min-height: min(520px, calc(100svh - var(--nav-height) - 54px));
   }
 
   .story-frame {
-    inset: 16px 0 0;
+    inset: 4px 12px 0 0;
     border-radius: 14px;
   }
 
   .story-profile-card {
-    right: 12px;
-    bottom: 22px;
-    width: min(300px, calc(100% - 24px));
+    right: 0;
+    bottom: 14px;
+    width: min(260px, 76%);
   }
 
   .story-slider-ui {
-    position: relative;
-    right: auto;
-    top: auto;
-    grid-template-columns: repeat(5, 38px);
-    justify-content: center;
-    order: -1;
-    margin-bottom: 2px;
-    transform: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    grid-template-columns: 1fr;
+    justify-content: initial;
+    order: initial;
+    margin-bottom: 0;
+    transform: translateY(-50%);
   }
 
   .story-slider-ui button {
@@ -1434,13 +1437,13 @@ img {
   }
 
   .hero {
-    min-height: 52svh;
-    padding: calc(var(--nav-height) + 36px) 18px 72px;
-    background-position: 62% center;
+    min-height: 100svh;
+    padding: var(--nav-height) 18px 72px;
+    background-position: 57% center;
   }
 
   .hero-content h1 {
-    font-size: 36px;
+    font-size: 39px;
   }
 
   .scroll-indicator {
@@ -1448,68 +1451,80 @@ img {
   }
 
   .pv-section {
-    min-height: 86svh;
-    padding: calc(var(--nav-height) + 18px) 16px 30px;
+    min-height: 100svh;
+    padding: calc(var(--nav-height) + 20px) 12px 24px;
+  }
+
+  .pv-content {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 0.28fr);
+    row-gap: 16px;
+    align-content: center;
   }
 
   .pv-copy h2 {
-    font-size: 32px;
+    font-size: 33px;
   }
 
   .pv-copy p:last-child,
   .story-content p:last-child {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 12px;
+    line-height: 1.52;
   }
 
   .pv-thumbnails {
-    gap: 14px;
-    padding: 6px 0 14px;
-    mask-image: none;
+    gap: 10px;
+    padding: 5px 3px 11px;
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      black 14px,
+      black calc(100% - 14px),
+      transparent 100%
+    );
   }
 
   .pv-thumb {
     width: 100%;
-    flex-basis: 100%;
-    height: clamp(164px, 43vw, 196px);
-    border-radius: 12px;
+    flex-basis: min(45vw, 178px);
+    height: 92px;
+    border-radius: 8px;
   }
 
   .pv-thumb-title {
-    inset: auto 14px 14px;
-    font-size: 15px;
+    inset: auto 10px 9px;
+    font-size: 11px;
   }
 
   .pv-card-play {
-    left: auto;
-    right: 14px;
-    top: auto;
-    bottom: 36px;
-    width: 38px;
-    transform: none;
+    left: 50%;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    width: 31px;
+    transform: translate(-50%, -50%);
   }
 
   .pv-carousel {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: 34px minmax(0, 1fr) 34px;
+    gap: 7px;
   }
 
   .pv-carousel-nav {
-    position: absolute;
+    position: relative;
     top: 50%;
-    z-index: 5;
-    width: 42px;
-    height: 42px;
+    z-index: 1;
+    width: 34px;
+    height: 34px;
     background: rgba(5, 10, 18, 0.72);
     transform: translateY(-50%);
   }
 
   .pv-carousel-prev {
-    left: -6px;
+    left: auto;
   }
 
   .pv-carousel-next {
-    right: -6px;
+    right: auto;
   }
 
   .pv-carousel-nav:hover,
@@ -1519,33 +1534,90 @@ img {
 
   .story-section {
     min-height: 100svh;
-    padding-top: 14px;
-  }
-
-  .story-content h2 {
-    font-size: 38px;
-    line-height: 1;
-  }
-
-  .story-character {
-    min-height: 380px;
-  }
-
-  .story-name-bg {
-    top: 8%;
-    font-size: 88px;
-  }
-
-  .story-profile-card {
-    padding: 15px;
-  }
-
-  .story-profile-card strong {
-    font-size: 18px;
+    padding: 14px 10px 18px;
   }
 
   .story-content {
-    padding: 8px 0 0;
+    grid-template-columns: minmax(0, 0.53fr) minmax(0, 0.47fr);
+    gap: 8px;
+    padding: 0;
+  }
+
+  .story-content h2 {
+    font-size: 28px;
+    line-height: 0.98;
+  }
+
+  .story-copy > p:last-of-type {
+    margin-top: 10px;
+  }
+
+  .story-stats {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .story-stats div {
+    min-height: 46px;
+    padding: 8px 9px;
+  }
+
+  .story-stats span {
+    font-size: 9px;
+  }
+
+  .story-stats strong {
+    margin-top: 4px;
+    font-size: 10px;
+    line-height: 1.18;
+  }
+
+  .story-character {
+    min-height: 410px;
+  }
+
+  .story-name-bg {
+    top: 4%;
+    font-size: 58px;
+  }
+
+  .story-frame {
+    inset: 4px 6px 0 0;
+  }
+
+  .story-frame img {
+    right: -20%;
+    bottom: -2%;
+    height: 98%;
+  }
+
+  .story-profile-card {
+    bottom: 12px;
+    width: min(185px, calc(100% - 4px));
+    padding: 10px;
+  }
+
+  .story-profile-card strong {
+    font-size: 14px;
+  }
+
+  .story-profile-card small {
+    margin-top: 6px;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .story-slider-ui {
+    right: -2px;
+    top: 43%;
+    gap: 8px;
+  }
+
+  .story-slider-ui button {
+    width: 32px;
+    height: 32px;
+    padding: 7px;
   }
 }
 
@@ -1580,10 +1652,23 @@ img {
   }
 
   .pv-copy h2 {
-    font-size: 31px;
+    font-size: 29px;
   }
 
   .pv-thumb {
-    height: 156px;
+    flex-basis: min(47vw, 164px);
+    height: 84px;
+  }
+
+  .story-content h2 {
+    font-size: 25px;
+  }
+
+  .story-character {
+    min-height: 385px;
+  }
+
+  .story-profile-card {
+    width: min(168px, calc(100% - 4px));
   }
 }
